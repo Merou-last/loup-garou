@@ -1,0 +1,64 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function verifiedDiscordMember() {
+      return signedIn()
+        && request.auth.token.discordMember == true
+        && request.auth.token.guildId == '1564749301203079422';
+    }
+    function isSelf(uid) {
+      return verifiedDiscordMember() && request.auth.uid == uid;
+    }
+
+    // Profiles are visible only to verified members. Clients may update only safe profile fields.
+    match /profiles/{uid} {
+      allow read: if verifiedDiscordMember();
+      allow create, update: if isSelf(uid)
+        && request.resource.data.keys().hasOnly(['displayName', 'avatarUrl', 'updatedAt'])
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() <= 50
+        && request.resource.data.avatarUrl is string
+        && request.resource.data.avatarUrl.size() <= 500;
+      allow delete: if false;
+    }
+
+    // Game state is server-authoritative. Only Cloud Functions/Admin SDK should create or update rooms.
+    match /gameRooms/{roomId} {
+      allow read: if verifiedDiscordMember();
+      allow create, update, delete: if false;
+
+      match /players/{uid} {
+        allow read: if verifiedDiscordMember();
+        allow create, update: if isSelf(uid)
+          && request.resource.data.keys().hasOnly(['displayName', 'avatarUrl', 'joinedAt', 'ready'])
+          && request.resource.data.displayName is string
+          && request.resource.data.displayName.size() <= 50
+          && request.resource.data.avatarUrl is string
+          && request.resource.data.avatarUrl.size() <= 500
+          && request.resource.data.ready is bool;
+        allow delete: if isSelf(uid);
+      }
+
+      // Players can submit intents, never write the board/state directly.
+      // Backend must validate each action before changing the game room.
+      match /actions/{actionId} {
+        allow read: if verifiedDiscordMember();
+        allow create: if verifiedDiscordMember()
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.keys().hasOnly(['uid', 'type', 'payload', 'createdAt'])
+          && request.resource.data.type is string
+          && request.resource.data.type.size() <= 40
+          && request.resource.data.payload is map;
+        allow update, delete: if false;
+      }
+    }
+
+    // Deny every collection not explicitly allowed above.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

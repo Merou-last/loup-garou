@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' dir='rtl' lang='ar' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <meta content='#080b14' name='theme-color'/>
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&amp;display=swap' rel='stylesheet'/>
+  <b:include data='blog' name='all-head-content'/>
+  <title><data:blog.pageTitle/></title>
+  <b:skin><![CDATA[
+/* Youcef Alpacino — قالب Blogger متعدد الألعاب (مبني من src/ بواسطة build.py) */
+:root{--bg:#070911;--bg2:#0d1222;--panel:rgba(18,23,39,.84);--panel2:rgba(255,255,255,.035);--line:rgba(112,145,255,.2);--blue:#7296ff;--cyan:#76e5ff;--gold:#e8c878;--muted:#aab3ca;--text:#f5f7ff;--red:#ff617d;--green:#55e4a0;--radius:20px;--font:'Cairo',Tahoma,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:radial-gradient(ellipse at 80% 0%,#17234b 0,transparent 38%),radial-gradient(ellipse at 5% 35%,#21142f 0,transparent 35%),var(--bg);background-attachment:fixed;color:var(--text);font-family:var(--font);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;color:inherit}
+img{max-width:100%}
+.wrap{width:min(1180px,92%);margin:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+
+/* شريط التنبيه والمعاينة */
+.banner{background:linear-gradient(90deg,#3a2a6b,#274a96);border-bottom:1px solid var(--line);text-align:center;padding:9px 14px;font-weight:700;font-size:14px}
+.banner[hidden]{display:none}
+.demo{background:#3b2f12;color:#ffe3a0;border-bottom:1px solid #6b5420;text-align:center;padding:7px 14px;font-size:13px}
+.demo[hidden]{display:none}
+
+/* الشريط العلوي */
+.nav{position:sticky;top:0;z-index:30;background:rgba(7,9,17,.86);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.navin{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brandmark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#1c3269,#111524);border:1px solid #7b9dff66;box-shadow:0 0 26px #557aff30;font-size:22px}
+.brand small{display:block;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.4px}
+.navlinks{display:flex;gap:6px;font-size:14px}
+.navlinks a{padding:6px 12px;border-radius:10px;color:#d3d9ee;transition:.2s}
+.navlinks a:hover{background:#ffffff0d;color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:13px;border:1px solid #829eff55;background:linear-gradient(135deg,#3f68d6,#243268);color:#fff;font-weight:800;box-shadow:0 8px 28px #355dba30;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn.secondary{background:#ffffff0a;border-color:var(--line);box-shadow:none}
+.btn.small{padding:6px 12px;font-size:13px;border-radius:10px}
+
+/* الواجهة الرئيسية */
+.hero{padding:62px 0 28px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:32px}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--cyan);font-size:12px;border:1px solid #76e5ff3b;background:#76e5ff0d;border-radius:100px;padding:6px 14px}
+.hero h1{font-size:clamp(34px,5.4vw,64px);line-height:1.25;margin:16px 0 12px;font-weight:900}
+.hero h1 span{background:linear-gradient(90deg,#fff,#8db4ff 45%,#d3b9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--muted);max-width:620px;margin:0 0 22px;font-size:17px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.livepill{display:inline-flex;align-items:center;gap:10px;margin-top:22px;border:1px solid var(--line);background:var(--panel2);border-radius:100px;padding:8px 16px;font-size:14px}
+.heroart{min-height:310px;position:relative;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);border-radius:30px;background:radial-gradient(circle at 50% 42%,#334e9b80,transparent 43%),linear-gradient(145deg,#121a32,#0b0e19);box-shadow:inset 0 0 70px #4b65b21c,0 24px 80px #0006}
+.moon{width:165px;height:165px;border-radius:50%;background:radial-gradient(circle at 33% 28%,#eff5ff,#94b8ff 34%,#354a89 68%,#11182b);box-shadow:0 0 35px #789dff99,0 0 110px #5b79ff3d;position:relative;animation:float 6s ease-in-out infinite}
+.moon:after{content:'🐺';position:absolute;font-size:90px;left:50%;top:50%;transform:translate(-50%,-45%);filter:drop-shadow(0 12px 12px #000)}
+.orbit{position:absolute;width:255px;height:255px;border:1px solid #91b1ff38;border-radius:50%;animation:spin 24s linear infinite}
+.orbit:before{content:'✦';position:absolute;top:22px;left:30px;color:#a9dfff;font-size:20px}
+.orbit.two{width:320px;height:320px;border-style:dashed;animation-direction:reverse;opacity:.5}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateY(-8px)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 6px}
+.stat{text-align:center;padding:16px 10px}
+.stat b{display:block;font-size:30px;font-weight:900;color:#fff}
+.stat span{color:var(--muted);font-size:13px}
+
+/* الأقسام */
+.section{padding:30px 0}
+.sectionhead{flex-wrap:wrap;display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:16px}
+.sectionhead h2{margin:0;font-size:26px;font-weight:900}
+.sectionhead p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.panel{border:1px solid var(--line);background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:var(--radius);padding:20px;box-shadow:0 14px 42px #0002}
+.statlabel{color:var(--muted);font-size:14px}
+.statvalue{font-size:28px;font-weight:900;margin-top:4px}
+.statusrow{display:flex;align-items:center;gap:8px;color:#b8c4e4;font-size:13px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);flex:none}
+.dot.off{background:var(--red);box-shadow:0 0 12px var(--red)}
+.dot.wait{background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.livegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.phases{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.phase{flex:1;min-width:110px;text-align:center;padding:10px 8px;border-radius:14px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:14px;transition:.3s}
+.phase.on{color:#fff;border-color:#8aa8ff;background:linear-gradient(135deg,#3f68d655,#24326855);box-shadow:0 0 24px #5b79ff40}
+.smallnote{color:var(--muted);font-size:12px}
+.refresh{background:transparent;border:1px solid var(--line);padding:7px 12px;border-radius:10px;font-size:13px}
+.refresh:hover{background:#ffffff0d}
+
+/* الأخبار */
+.newsgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.news{display:flex;flex-direction:column;gap:6px}
+.news h3{margin:0;font-size:18px}
+.news p{margin:0;color:#c9d1e8;font-size:15px;white-space:pre-line;overflow-wrap:anywhere}
+.news .meta{margin-top:auto;padding-top:8px;color:var(--muted);font-size:12px}
+.pin{display:inline-block;background:#e8c87822;color:var(--gold);border:1px solid #e8c87855;border-radius:100px;font-size:11px;padding:1px 9px;margin-inline-start:6px}
+
+/* الترتيب */
+.podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:14px;align-items:end}
+.pod{text-align:center;padding:18px 10px}
+.pod.p1{order:2;padding-block:26px;border-color:#e8c87888;box-shadow:0 0 50px #e8c87820}
+.pod.p2{order:1}.pod.p3{order:3}
+.pod .medal{font-size:30px}
+.pod .avatar{width:64px;height:64px;margin:6px auto}
+.pod.p1 .avatar{width:78px;height:78px;border-color:var(--gold)}
+.pod{min-width:0}.pod .name{display:block;max-width:100%}
+.leaderboard{overflow:hidden;padding:0}
+.tablehead,.playerrow{display:grid;grid-template-columns:55px 1fr 90px 90px;gap:12px;align-items:center;padding:12px 18px}
+.tablehead{font-size:12px;color:var(--muted);background:#ffffff06;border-bottom:1px solid var(--line)}
+.playerrow{border-bottom:1px solid #ffffff0b}
+.playerrow:last-child{border-bottom:0}
+.ranknum{font-weight:900;color:var(--gold)}
+.playername{display:flex;align-items:center;gap:10px;min-width:0}
+.avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;background:#202b4b;border:1px solid #7797ff55;display:inline-block;flex:none}
+.name{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sub{color:var(--muted);font-size:12px}
+.score{font-weight:800}
+
+/* السجل */
+.history{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.game{display:flex;gap:14px;align-items:center;padding:14px 18px}
+.game .ico{font-size:28px;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--panel2);border:1px solid var(--line);flex:none}
+.game.wolves .ico{border-color:#ff617d66;background:#ff617d12}
+.game.villagers .ico{border-color:#55e4a066;background:#55e4a012}
+.game b{display:block}
+
+/* الأدوار */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--panel2);border-radius:100px;padding:5px 16px;font-size:14px}
+.chip[aria-pressed='true']{background:linear-gradient(135deg,#3f68d6,#243268);border-color:#829eff88;color:#fff}
+.rolesgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.rolecard{padding:0;overflow:hidden;transition:.25s;text-align:start;cursor:pointer;display:block;width:100%}
+.rolecard:hover{transform:translateY(-4px);border-color:#8aa8ff88;box-shadow:0 18px 50px #314eaa25}
+.roleimage{height:175px;background:radial-gradient(circle at 50% 30%,#2d3e72,#0a0d17 70%);display:grid;place-items:center;overflow:hidden;font-size:54px}
+.roleimage img{width:100%;height:100%;object-fit:cover}
+.rolebody{padding:12px 14px 14px}
+.rolebody h3{margin:4px 0 0;font-size:16px}
+.pill{display:inline-block;border:1px solid var(--line);color:#bac8f5;border-radius:100px;padding:1px 10px;font-size:11px}
+.pill.wolf{color:#ff9cab;border-color:#ff617d55}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(3,5,10,.78);display:grid;place-items:center;padding:18px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.modal[hidden]{display:none}
+.modalbox{width:min(760px,100%);max-height:92vh;overflow:auto;display:grid;grid-template-columns:260px 1fr;padding:0}
+.modalbox .roleimage{height:100%;min-height:300px}
+.modalbox .txt{padding:24px}
+.modalbox h3{margin:8px 0;font-size:26px}
+.modalbox p{color:#d5dcf0;font-size:16px}
+.close{float:inline-end;background:transparent;border:1px solid var(--line);border-radius:10px;padding:4px 12px}
+
+/* طريقة اللعب */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.step{position:relative;padding-top:44px}
+.step:before{counter-increment:s;content:counter(s);position:absolute;top:12px;inset-inline-start:18px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#06091a;font-weight:900}
+.step h3,.grid .panel h3{margin:0 0 4px;font-size:18px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+details.faq{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:12px 18px;margin-bottom:10px}
+details.faq summary{cursor:pointer;font-weight:800}
+details.faq p{margin:8px 0 2px;color:var(--muted)}
+
+/* حالات */
+.loading,.empty{color:var(--muted);text-align:center;padding:26px}
+.error{color:#ff9cab}
+.skeleton{background:linear-gradient(90deg,#ffffff08,#ffffff14,#ffffff08);background-size:200% 100%;animation:sk 1.4s infinite;border-radius:10px;min-height:20px}
+@keyframes sk{to{background-position:-200% 0}}
+.reveal{opacity:0;transform:translateY(14px);transition:.6s}
+.reveal.in{opacity:1;transform:none}
+
+/* مدونة Blogger */
+.blog-posts{display:grid;gap:16px}
+.pagehead{padding:30px 0 4px}
+.pagehead h1{margin:0;font-size:30px}
+.post-card{overflow:hidden;padding:0}
+.post-card .thumb{display:block;width:100%;height:230px;object-fit:cover}
+.post-inner{padding:20px 22px}
+.post-title{margin:0 0 6px;font-size:24px;line-height:1.4}
+.post-title a:hover{color:var(--cyan)}
+.post-meta{color:var(--muted);font-size:13px;display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.post-snippet{color:#c9d1e8;margin:0 0 12px}
+.post-body{color:#dbe2f5;font-size:17px;line-height:1.95;overflow-wrap:anywhere}
+.post-body img{height:auto;border-radius:14px}
+.post-body a{color:var(--cyan);text-decoration:underline}
+.post-body h2,.post-body h3{color:#fff}
+.post-body blockquote{margin:14px 0;padding:8px 18px;border-inline-start:3px solid var(--blue);background:var(--panel2);border-radius:0 12px 12px 0}
+.labels{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.labels a{border:1px solid var(--line);border-radius:100px;padding:1px 12px;font-size:12px;color:#bac8f5}
+.labels a:hover{border-color:var(--blue)}
+.share{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.blog-pager{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;margin:22px 0}
+.comments{margin-top:16px}
+.comment{padding:12px 0;border-bottom:1px solid #ffffff0d}
+.comment:last-of-type{border-bottom:0}
+.searchbox{display:flex;gap:8px}
+.searchbox input{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:9px 14px;color:var(--text);font:inherit}
+
+/* التذييل */
+.footer{margin-top:40px;border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}
+.footin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.toast{position:fixed;bottom:18px;inset-inline-start:18px;z-index:70;background:#151c2d;border:1px solid var(--line);border-radius:12px;padding:12px 16px;display:none;max-width:90vw}
+
+@media(max-width:1000px){.rolesgrid{grid-template-columns:repeat(3,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:34px}.heroart{min-height:210px;order:-1}.livegrid{grid-template-columns:repeat(2,1fr)}.grid,.newsgrid,.history{grid-template-columns:1fr}.navin{flex-wrap:wrap}.navlinks{order:3;width:100%;overflow-x:auto;padding-bottom:4px;white-space:nowrap}.modalbox{grid-template-columns:1fr}.modalbox .roleimage{min-height:220px;height:220px}}
+@media(max-width:560px){.rolesgrid{grid-template-columns:1fr 1fr;gap:10px}.roleimage{height:135px}.steps{grid-template-columns:1fr}.tablehead,.playerrow{grid-template-columns:34px 1fr 62px 62px;gap:8px;padding:11px 10px}.avatar{width:30px;height:30px}.sub{display:none}.score{font-size:13px}.podium{gap:8px}.pod{padding:12px 4px}.pod .avatar{width:44px;height:44px}.pod.p1 .avatar{width:56px;height:56px}.panel{padding:16px}.stat b{font-size:24px}.btn{padding:10px 14px}.post-card .thumb{height:170px}.post-inner{padding:16px}.post-title{font-size:20px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+
+
+/* Youcef Alpacino multi-game portal */
+.gamesgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.gamecard{display:flex;flex-direction:column;gap:12px;min-height:285px;position:relative;overflow:hidden}
+.gamecard:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--accent),#8b5cf6,#22d3ee);opacity:.9}
+.gameemoji{font-size:44px;line-height:1.2;filter:drop-shadow(0 8px 18px #0005)}
+.gamecard h3{font-size:23px;margin:8px 0 6px}
+.gamecard p{color:var(--muted);line-height:1.8;margin:0 0 8px}
+.gamestatus{font-size:12px;color:#fbbf24;line-height:1.7;display:block;margin-top:8px}
+.gamejoin{margin-top:auto;align-self:flex-start}
+@media(max-width:1000px){.gamesgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.gamesgrid{grid-template-columns:1fr}.gamecard{min-height:unset}}
+
+]]></b:skin>
+</head>
+<body expr:class='&quot;pagetype-&quot; + data:blog.pageType'>
+<div class="banner" hidden="hidden" id="banner" role="status"></div><div class="demo" hidden="hidden" id="demo">👀 وضع المعاينة: هذه بيانات تجريبية. عدّل <b>API_BASE</b> في القالب لربط البوت.</div><header class="nav"><div class="wrap navin"><a class="brand" expr:href='data:blog.homepageUrl'><span class="brandmark">🐺</span><span>YOUCEF ALPACINO<small>MULTIPLAYER GAMING HUB</small></span></a><nav aria-label="القائمة الرئيسية" class="navlinks"><a expr:href='data:blog.homepageUrl + &quot;#status&quot;'>حالة اللعبة</a><a expr:href='data:blog.homepageUrl + &quot;#news&quot;'>الأخبار</a><a expr:href='data:blog.homepageUrl + &quot;#ranking&quot;'>المتصدرون</a><a expr:href='data:blog.homepageUrl + &quot;#roles&quot;'>الأدوار</a><a expr:href='data:blog.homepageUrl + &quot;#rules&quot;'>طريقة اللعب</a><a expr:href='data:blog.homepageUrl + &quot;#blog&quot;'>المدونة</a></nav><a class="btn" data-invite="1" href="#" rel="noopener" target="_blank">انضم إلى السيرفر ↗</a></div></header>
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+<div class="wrap" id="home">
+<section class="hero">
+  <div>
+    <span class="eyebrow">✦ بوابة ألعاب جماعية • مجتمع • منافسة</span>
+    <h1>العب مع أصدقائك<br/><span>في عالم Youcef!</span></h1>
+    <p class="lead">مرحبًا بك في <b>Youcef Alpacino</b> — بوابتك للألعاب الجماعية ومجتمع Discord. اكتشف الألعاب، أنشئ غرف اللعب، وتابع أخبار مجتمعك من مكان واحد.</p>
+    <div class="actions">
+      <a class="btn" data-invite="1" href="#" rel="noopener" target="_blank">🎮 انضم إلى السيرفر</a>
+      <a class="btn secondary" href="#games">🎮 اكتشف الألعاب</a>
+      <a class="btn secondary" href="#roles">🎭 الأدوار</a>
+    </div>
+    <div class="livepill" aria-live="polite"><span class="dot wait" id="heroDot"></span><span id="heroLive">جارٍ الاتصال بالبوت…</span></div>
+  </div>
+  <div class="heroart" aria-hidden="true"><div class="orbit"></div><div class="orbit two"></div><div class="moon"></div></div>
+</section>
+
+<div class="stats">
+  <div class="panel stat"><b id="statMembers">—</b><span>عضو في السيرفر</span></div>
+  <div class="panel stat"><b id="statGames">—</b><span>جولة منتهية</span></div>
+  <div class="panel stat"><b id="statPlayers">—</b><span>لاعب مسجّل</span></div>
+</div>
+
+<section class="section reveal" id="games">
+  <div class="sectionhead"><div><h2>🎮 ساحة الألعاب</h2><p>اختر لعبتك وادخل إلى مجتمع Youcef Alpacino. واجهات اللعب الجماعي تُفعّل تباعًا بعد نشر خدمة اللعب الآمنة.</p></div><span class="pill">MULTIPLAYER HUB</span></div>
+  <div class="gamesgrid">
+    <article class="panel gamecard"><div class="gameemoji">🪵</div><div><span class="pill">استراتيجية</span><h3>Jackaroo</h3><p>خطط مع فريقك، حرّك الأحجار، وغيّر مجرى الجولة بالبطاقات.</p><span class="gamestatus">قيد التجهيز — محرك اللعب الجماعي غير منشور بعد</span></div><a class="btn secondary gamejoin" data-game="jackaroo" href="#discord">تفاصيل اللعبة</a></article>
+    <article class="panel gamecard"><div class="gameemoji">🃏</div><div><span class="pill">بطاقات</span><h3>UNO</h3><p>تخلّص من أوراقك قبل الجميع واستخدم بطاقات التغيير بحكمة.</p><span class="gamestatus">قيد التجهيز — محرك اللعب الجماعي غير منشور بعد</span></div><a class="btn secondary gamejoin" data-game="uno" href="#discord">تفاصيل اللعبة</a></article>
+    <article class="panel gamecard"><div class="gameemoji">🁫</div><div><span class="pill">ذكاء</span><h3>Dominoes</h3><p>طابق القطع، اقرأ تحركات الخصوم، واجمع النقاط مع فريقك.</p><span class="gamestatus">قيد التجهيز — محرك اللعب الجماعي غير منشور بعد</span></div><a class="btn secondary gamejoin" data-game="dominoes" href="#discord">تفاصيل اللعبة</a></article>
+    <article class="panel gamecard"><div class="gameemoji">🎲</div><div><span class="pill">كلاسيكية</span><h3>Ludo</h3><p>أوصل قطعك إلى خط النهاية وتنافس مع الأصدقاء في غرفة خاصة.</p><span class="gamestatus">قيد التجهيز — محرك اللعب الجماعي غير منشور بعد</span></div><a class="btn secondary gamejoin" data-game="ludo" href="#discord">تفاصيل اللعبة</a></article>
+    <article class="panel gamecard"><div class="gameemoji">🕵️</div><div><span class="pill">خداع اجتماعي</span><h3>Who Is the Spy?</h3><p>اكتشف الجاسوس قبل أن يضلّل الجميع، أو أخفِ هويتك حتى النهاية.</p><span class="gamestatus">قيد التجهيز — محرك اللعب الجماعي غير منشور بعد</span></div><a class="btn secondary gamejoin" data-game="spy" href="#discord">تفاصيل اللعبة</a></article>
+    <article class="panel gamecard"><div class="gameemoji">🐺</div><div><span class="pill">متاحة عبر Discord</span><h3>Loup-Garou</h3><p>اللعبة الحالية للبوت: أدوار سرية، نقاش، تصويت، وتحديات اجتماعية.</p></div><a class="btn gamejoin" data-invite="1" href="#" target="_blank" rel="noopener">العب في Discord ↗</a></article>
+  </div>
+  <div class="actions" style="margin-top:18px"><a class="btn" href="https://meroulast.online" target="_blank" rel="noopener">🛒 متجر شحن الألعاب</a><a class="btn secondary" href="https://www.tiktok.com/@youcefalpa22?_r=1&amp;_t=ZS-9AwgfxwIywf7" target="_blank" rel="noopener">🎵 TikTok @youcefalpa22</a></div>
+</section>
+
+<section class="section reveal" id="status">
+  <div class="sectionhead"><div><h2>📡 مركز حالة اللعبة</h2><p>بيانات حيّة من البوت تتجدد تلقائيًا.</p></div><button class="refresh" id="refreshBtn" type="button">↻ تحديث</button></div>
+  <div class="livegrid">
+    <div class="panel"><div class="statusrow"><span class="dot wait" id="botDot"></span><span id="botStatus">جارٍ الاتصال بالبوت…</span></div><div class="statvalue" id="phaseValue">—</div><div class="statlabel">مرحلة اللعبة <span id="nightNo"></span></div></div>
+    <div class="panel"><div class="statlabel">👥 في قائمة الانتظار</div><div class="statvalue" id="waitingValue">—</div><div class="statlabel">الحد الأدنى <span id="minPlayers">—</span></div></div>
+    <div class="panel"><div class="statlabel">🟢 الأحياء</div><div class="statvalue" id="aliveValue">—</div><div class="statlabel">داخل الجولة الحالية</div></div>
+    <div class="panel"><div class="statlabel">💀 الموتى</div><div class="statvalue" id="deadValue">—</div><div class="statlabel" id="guildName">Loup-Garou</div></div>
+  </div>
+  <div class="phases" id="phases">
+    <div class="phase" data-p="night">🌙 الليل</div><div class="phase" data-p="dawn">🌅 الفجر</div><div class="phase" data-p="day">☀️ النقاش</div><div class="phase" data-p="vote">🗳️ التصويت</div>
+  </div>
+  <p class="smallnote" id="lastUpdate" style="margin-top:10px">—</p>
+</section>
+
+<section class="section reveal" id="news">
+  <div class="sectionhead"><div><h2>📢 آخر الأخبار</h2><p>تُنشر من داخل ديسكورد بأمر <bdi>/announce</bdi>.</p></div></div>
+  <div class="newsgrid" id="newsGrid"><div class="panel loading">جارٍ تحميل الأخبار…</div></div>
+</section>
+
+<section class="section reveal" id="ranking">
+  <div class="sectionhead"><div><h2>🏆 قاعة الأساطير</h2><p>الترتيب حسب الخبرة ثم الانتصارات.</p></div><span class="pill">TOP 10</span></div>
+  <div class="podium" id="podium"></div>
+  <div class="panel leaderboard"><div class="tablehead"><span>#</span><span>اللاعب</span><span>الخبرة</span><span>الفوز</span></div><div id="leaderboard"><div class="loading">جارٍ تحميل الترتيب…</div></div></div>
+</section>
+
+<section class="section reveal" id="history">
+  <div class="sectionhead"><div><h2>📜 آخر الجولات</h2><p>نتائج الجولات المنتهية في السيرفر.</p></div></div>
+  <div class="history" id="historyGrid"><div class="panel loading">جارٍ تحميل السجل…</div></div>
+</section>
+
+<section class="section reveal" id="roles">
+  <div class="sectionhead"><div><h2>🎭 موسوعة الأدوار</h2><p>اضغط على أي بطاقة لقراءة قدرتها كاملة.</p></div>
+    <div class="chips" role="group" aria-label="تصفية الأدوار"><button class="chip" type="button" data-f="all" aria-pressed="true">الكل</button><button class="chip" type="button" data-f="القرية" aria-pressed="false">🏡 القرية</button><button class="chip" type="button" data-f="الذئاب" aria-pressed="false">🐺 الذئاب</button></div></div>
+  <div class="rolesgrid" id="rolesGrid"><div class="panel loading">جارٍ تحميل البطاقات…</div></div>
+</section>
+
+<section class="section reveal" id="rules">
+  <div class="sectionhead"><div><h2>📜 كيف تلعب؟</h2><p>دليل سريع للاعب الجديد.</p></div></div>
+  <div class="grid">
+    <article class="panel"><h3>🌑 الليل</h3><p class="statlabel">تنفّذ الأدوار الليلية قدراتها بسرية من أزرار البوت. لا تكشف معلوماتك في القنوات العامة.</p></article>
+    <article class="panel"><h3>🌕 النهار</h3><p class="statlabel">نقاش بالدور: يتكلم لاعب واحد كل مرة، ويمكنك طلب دور إضافي بموافقة العمدة.</p></article>
+    <article class="panel"><h3>🗳️ التصويت</h3><p class="statlabel">تصويت سري بالأزرار؛ العمدة بصوتين، والتعادل يعني لا إقصاء. تنتهي الجولة عند فوز أحد الفريقين.</p></article>
+  </div>
+  <div class="steps">
+    <div class="panel step"><h3>ادخل السيرفر</h3><p>من زر «انضم إلى السيرفر» أعلاه.</p></div>
+    <div class="panel step"><h3>سجّل في اللوبي</h3><p>اضغط «انضمام» في قناة غرفة-اللعبة (5 لاعبين على الأقل).</p></div>
+    <div class="panel step"><h3>استلم دورك سرًا</h3><p>تصلك البطاقة في الخاص أو من زر «اعرض دوري».</p></div>
+    <div class="panel step"><h3>العب واكسب خبرة</h3><p>كل جولة تمنحك نقاطًا ترفعك في الترتيب.</p></div>
+  </div>
+</section>
+
+<section class="section reveal" id="faq">
+  <div class="sectionhead"><div><h2>❓ أسئلة شائعة</h2></div></div>
+  <details class="faq"><summary>كم لاعبًا أحتاج لبدء جولة؟</summary><p>من 5 إلى 25 لاعبًا. تتغير الأدوار المفعّلة حسب العدد.</p></details>
+  <details class="faq"><summary>هل أحتاج الميكروفون؟</summary><p>الأفضل ذلك، فالنقاش صوتي بالدور، لكن البوت يدير الكتم تلقائيًا ويمكنك المشاركة بالكتابة أيضًا.</p></details>
+  <details class="faq"><summary>لماذا تظهر «البوت يستيقظ»؟</summary><p>الاستضافة المجانية تنام عند الخمول. انتظر دقيقة وستظهر البيانات.</p></details>
+  <details class="faq"><summary>كيف تُحفظ نقاطي؟</summary><p>تُحفظ في قاعدة بيانات دائمة وتتحدث بعد كل جولة، وتُمنح لك رتب تلقائية في ديسكورد.</p></details>
+</section>
+</div>
+
+<div class="modal" hidden="hidden" id="roleModal" role="dialog" aria-modal="true" aria-labelledby="rmTitle"><div class="panel modalbox"><div class="roleimage" id="rmImg"></div><div class="txt"><button class="close" id="rmClose" type="button">✕ إغلاق</button><span class="pill" id="rmTeam"></span><h3 id="rmTitle"></h3><p id="rmDesc"></p></div></div></div>
+</b:if>
+<div class='wrap' id='blog'>
+  <div class='section'>
+    <b:if cond='data:blog.url == data:blog.homepageUrl'>
+      <div class='sectionhead'><div><h2>📰 المدونة</h2><p>مقالات وأدلة واستراتيجيات من مجتمع اللعبة.</p></div></div>
+    </b:if>
+    <form class='searchbox' expr:action='data:blog.homepageUrl + &quot;search&quot;' method='get' role='search'><input aria-label='بحث' name='q' placeholder='ابحث في المدونة…' type='search'/><button class='btn small' type='submit'>بحث</button></form>
+  </div>
+<b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
+<b:widget id='Blog1' locked='true' title='المنشورات' type='Blog' version='1'>
+<b:includable id='main' var='top'>
+<div class='blog-posts hfeed'>
+  <b:if cond='data:blog.pageType != &quot;item&quot;'>
+    <b:if cond='data:blog.searchLabel'><div class='pagehead'><h1>🏷️ <data:blog.searchLabel/></h1></div></b:if>
+    <b:if cond='data:blog.searchQuery'><div class='pagehead'><h1>🔎 نتائج: <data:blog.searchQuery/></h1></div></b:if>
+  </b:if>
+  <b:loop values='data:posts' var='post'>
+    <b:include data='post' name='post'/>
+  </b:loop>
+</div>
+<b:include name='nextprev'/>
+</b:includable>
+
+<b:includable id='post' var='post'>
+<article class='panel post-card' expr:id='&quot;post-&quot; + data:post.id'>
+  <b:if cond='data:blog.pageType != &quot;item&quot; and data:post.firstImageUrl'>
+    <a expr:href='data:post.url'><img alt='' class='thumb' expr:src='data:post.firstImageUrl' loading='lazy'/></a>
+  </b:if>
+  <div class='post-inner'>
+    <b:if cond='data:post.title != &quot;&quot;'>
+      <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <h1 class='post-title entry-title'><data:post.title/></h1>
+      <b:else/>
+        <h2 class='post-title entry-title'><a expr:href='data:post.url'><data:post.title/></a></h2>
+      </b:if>
+    </b:if>
+    <div class='post-meta'><span>📅 <data:post.timestamp/></span><span>✍️ <data:post.author/></span></div>
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+      <div class='post-body entry-content'><data:post.body/></div>
+    <b:else/>
+      <p class='post-snippet'><b:eval expr='data:post.body snippet {length: 240, links: false, linebreaks: false, ellipsis: true}'/></p>
+      <a class='btn small secondary' expr:href='data:post.url'>اقرأ المزيد ←</a>
+    </b:if>
+    <b:if cond='data:post.labels'>
+      <div class='labels'><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url' rel='tag'>#<data:label.name/></a></b:loop></div>
+    </b:if>
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+      <div class='share'>
+        <a class='btn small secondary' expr:href='&quot;https://wa.me/?text=&quot; + data:post.url' rel='noopener' target='_blank'>واتساب</a>
+        <a class='btn small secondary' expr:href='&quot;https://t.me/share/url?url=&quot; + data:post.url' rel='noopener' target='_blank'>تيليجرام</a>
+        <a class='btn small secondary' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url' rel='noopener' target='_blank'>X</a>
+        <button class='btn small secondary' expr:data-copy='data:post.url' type='button'>نسخ الرابط</button>
+      </div>
+    </b:if>
+  </div>
+</article>
+<b:if cond='data:blog.pageType == &quot;item&quot;'><b:include data='post' name='comments'/></b:if>
+</b:includable>
+
+<b:includable id='comments' var='post'>
+<b:if cond='data:post.allowComments'>
+<section class='panel comments' id='comments'>
+  <h3>💬 التعليقات</h3>
+  <b:if cond='data:post.comments'>
+    <b:loop values='data:post.comments' var='comment'>
+      <div class='comment'><b><data:comment.author/></b> <span class='sub'>• <data:comment.timestamp/></span><div><data:comment.body/></div></div>
+    </b:loop>
+  </b:if>
+  <a class='btn small' expr:href='data:post.addCommentUrl'>✍️ أضف تعليقًا</a>
+</section>
+</b:if>
+</b:includable>
+
+<b:includable id='nextprev'>
+<div class='blog-pager' id='blog-pager'>
+  <b:if cond='data:newerPageUrl'><a class='btn secondary' expr:href='data:newerPageUrl' rel='next'>→ الأحدث</a><b:else/><span></span></b:if>
+  <b:if cond='data:blog.pageType != &quot;static_page&quot;'><a class='btn secondary' expr:href='data:blog.homepageUrl'>🏠 الرئيسية</a></b:if>
+  <b:if cond='data:olderPageUrl'><a class='btn secondary' expr:href='data:olderPageUrl' rel='prev'>الأقدم ←</a><b:else/><span></span></b:if>
+</div>
+</b:includable>
+</b:widget>
+</b:section>
+</div>
+<footer class="footer"><div class="wrap footin"><span>© <span id="year"></span> Youcef Alpacino — Multiplayer Gaming Hub</span><span>مجتمع ألعاب Youcef Alpacino 🎮</span></div></footer><div class="toast" id="toast" role="status"></div>
+<script type='text/javascript'>
+//<![CDATA[
+/* ═══════════ الإعدادات — عدّل هذه القيم فقط ═══════════ */
+window.MEROU_CONFIG = {
+  API_BASE: "https://YOUR-SERVICE.onrender.com",   /* استبدل برابط خدمة البوت بعد نشرها */
+  DISCORD_INVITE: "https://discord.gg/sDBjcqcQjK", /* رابط سيرفر Youcef Alpacino */
+  GUILD_ID: "1564749301203079422"                   /* Discord Guild ID */
+};
+/* ═══════════════════════════════════════════════════ */
+/* Merou Last — واجهة الموقع. تعتمد على الـ API العام للبوت (قراءة فقط). */
+(function () {
+  var C = window.MEROU_CONFIG || {};
+  var API = String(C.API_BASE || "").replace(/\/+$/, "");
+  var DEMO = !API || API.indexOf("YOUR-SERVICE") !== -1;
+  var GUILD = String(C.GUILD_ID || "").replace(/\D/g, "");
+  var $ = function (id) { return document.getElementById(id); };
+  var safe = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var num = function (n) { try { return Number(n || 0).toLocaleString("ar-EG"); } catch (e) { return String(n || 0); } };
+  var url = function (u) { u = String(u || ""); return /^https:\/\//i.test(u) ? safe(u) : ""; };
+
+  var ROLES = [
+    ["werewolf", "الذئب", "Werewolf", "🐺", "في الليل اتفق مع بقية الذئاب على ضحية. هدفك إقصاء القرويين دون كشف هويتك.", "الذئاب"],
+    ["villager", "القروي", "Villager", "🧑‍🌾", "لا تملك قدرة ليلية. ناقش الأدلة وصوّت نهارًا لاكتشاف الذئاب.", "القرية"],
+    ["seer", "العرافة", "Seer", "🔮", "كل ليلة افحص لاعبًا لتعرف هل هو ذئب أم لا (الذئب الأبيض يظهر ذئبًا).", "القرية"],
+    ["doctor", "الطبيب", "Doctor", "🩺", "كل ليلة اختر لاعبًا لحمايته من الذئاب. يجوز أن تحمي نفسك.", "القرية"],
+    ["hunter", "الصياد", "Hunter", "🏹", "عند خروجك من اللعبة لأي سبب، تطلق سهمًا أخيرًا على لاعب حي.", "القرية"],
+    ["guardian", "الحارس", "Guardian", "🛡️", "كل ليلة احمِ لاعبًا من الذئاب. لا تحمِ الشخص نفسه ليلتين متتاليتين.", "القرية"],
+    ["witch", "الساحرة", "Witch", "🧙‍♀️", "جرعة إنقاذ وجرعة سم لكل لعبة (جرعة واحدة في الليلة). ترين ضحية الذئاب كل ليلة.", "القرية"],
+    ["little_girl", "الطفلة", "Little Girl", "👧", "يمكنك التجسس ليلًا فتحصلين على 3 أسماء بينها ذئب، لكن بنسبة 20% تُكشفين فتموتين.", "القرية"],
+    ["mayor", "العمدة", "Mayor", "🎖️", "صوتك في التصويت النهاري يُحسب بصوتين.", "القرية"],
+    ["white_wolf", "الذئب الأبيض", "White Wolf", "🤍", "ذئب يلعب مع الذئاب، وفي الليالي الزوجية يمكنه قتل رفيق منهم. يفوز وحده إن بقي آخر لاعب حي.", "الذئاب"]
+  ].map(function (r) { return { key: r[0], name_ar: r[1], name_en: r[2], emoji: r[3], description: r[4], team: r[5], image_url: "/assets/cards/" + r[0] + ".png" }; });
+
+  var DEMO_DATA = {
+    status: { bot_online: true, phase: "day", phase_label: "النقاش", night: 2, waiting_players: 0, alive_players: 6, dead_players: 2, min_players: 5, guild_name: "قرية Merou Last", member_count: 128, updated_at: new Date().toISOString() },
+    totals: { players: 64, games: 37 },
+    site: { banner: "", invite_url: "" },
+    leaderboard: [["نور", 118, 31, 19], ["ريان", 96, 28, 15], ["لينا", 84, 25, 13], ["سامي", 61, 20, 8], ["هديل", 48, 17, 7], ["مازن", 37, 14, 5], ["جود", 26, 11, 3]].map(function (p, i) { return { rank: i + 1, name: p[0], xp: p[1], games: p[2], wins: p[3], level: 20, level_name: "👑 أسطورة القرية", avatar_url: "" }; }),
+    news: [{ id: 2, title: "بطولة نهاية الأسبوع 🏆", body: "جولات متتالية يوم الجمعة الساعة 9 مساءً بتوقيت مكة. الجائزة: رتبة ذهبية خاصة!", author: "الإدارة", pinned: true, created_at: new Date(Date.now() - 36e5 * 5).toISOString() }, { id: 1, title: "أدوار جديدة", body: "أضفنا الطفلة والعمدة والذئب الأبيض. اقرأوا شرحها في قسم الأدوار.", author: "الإدارة", pinned: false, created_at: new Date(Date.now() - 864e5 * 3).toISOString() }],
+    history: [{ winner: "wolves", winner_label: "الذئاب", players: 8, nights: 3, winners: ["نور", "سامي"], ended_at: new Date(Date.now() - 36e5 * 2).toISOString() }, { winner: "villagers", winner_label: "القرويون", players: 7, nights: 4, winners: ["ريان", "لينا", "هديل", "جود", "مازن"], ended_at: new Date(Date.now() - 864e5).toISOString() }]
+  };
+
+  var state = { filter: "all", roles: ROLES, wakeTimer: 0, data: null };
+
+  function ago(iso) {
+    if (!iso) return "";
+    var s = (new Date(iso).getTime() - Date.now()) / 1000, a = Math.abs(s);
+    try {
+      var f = new Intl.RelativeTimeFormat("ar", { numeric: "auto" });
+      if (a < 3600) return f.format(Math.round(s / 60), "minute");
+      if (a < 86400) return f.format(Math.round(s / 3600), "hour");
+      if (a < 2592000) return f.format(Math.round(s / 86400), "day");
+      return new Date(iso).toLocaleDateString("ar", { day: "numeric", month: "long", year: "numeric" });
+    } catch (e) { return new Date(iso).toLocaleDateString(); }
+  }
+
+  function toast(msg) { var t = $("toast"); if (!t) return; t.textContent = msg; t.style.display = "block"; setTimeout(function () { t.style.display = "none"; }, 3500); }
+
+  function getJSON(path, ms) {
+    var ctl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctl) ctl.abort(); }, ms || 70000);
+    var q = path + (GUILD ? (path.indexOf("?") > -1 ? "&" : "?") + "guild_id=" + GUILD : "");
+    return fetch(API + q, { cache: "no-store", signal: ctl ? ctl.signal : undefined }).then(function (r) {
+      if (!r.ok) throw new Error("API " + r.status);
+      return r.json();
+    }).then(function (d) { clearTimeout(timer); return d; }, function (e) { clearTimeout(timer); throw e; });
+  }
+
+  /* ───── رسم الأقسام ───── */
+  function setLive(ok, text) {
+    ["botDot", "heroDot"].forEach(function (id) { var d = $(id); if (d) { d.className = "dot" + (ok === true ? "" : ok === false ? " off" : " wait"); } });
+    if ($("heroLive")) $("heroLive").textContent = text;
+    if ($("botStatus")) $("botStatus").textContent = ok === true ? "البوت متصل" : ok === false ? "البوت غير متصل" : "جارٍ الاتصال بالبوت…";
+  }
+
+  function renderStatus(s, totals) {
+    var online = !!s.bot_online;
+    setLive(online, online ? ((s.active ? "جولة جارية • " + s.phase_label : "التسجيل مفتوح") + (s.waiting_players ? " • " + num(s.waiting_players) + " بالانتظار" : "")) : "البوت غير متصل حاليًا");
+    if (!$("phaseValue")) return;
+    $("phaseValue").textContent = s.phase_label || "—";
+    $("nightNo").textContent = s.active && s.night ? "• الليلة " + num(s.night) : "";
+    $("waitingValue").textContent = num(s.waiting_players);
+    $("aliveValue").textContent = num(s.alive_players);
+    $("deadValue").textContent = num(s.dead_players);
+    $("minPlayers").textContent = num(s.min_players || 5);
+    $("guildName").textContent = s.guild_name || "Loup-Garou";
+    var map = { night: "night", witch: "night", dawn: "dawn", day: "day", vote: "vote", dusk: "vote" };
+    Array.prototype.forEach.call(document.querySelectorAll("#phases .phase"), function (el) { el.classList.toggle("on", s.active && map[s.phase] === el.getAttribute("data-p")); });
+    $("lastUpdate").textContent = "آخر تحديث: " + new Date(s.updated_at || Date.now()).toLocaleTimeString("ar") + (DEMO ? " (بيانات تجريبية)" : "");
+    if ($("statMembers")) { $("statMembers").textContent = s.member_count ? num(s.member_count) : "—"; $("statGames").textContent = totals ? num(totals.games) : "—"; $("statPlayers").textContent = totals ? num(totals.players) : "—"; }
+  }
+
+  function avatar(p, cls) { var u = url(p.avatar_url); return u ? '<img class="avatar ' + (cls || "") + '" src="' + u + '" alt="" loading="lazy" referrerpolicy="no-referrer"/>' : '<span class="avatar ' + (cls || "") + '"></span>'; }
+
+  function renderBoard(list) {
+    var root = $("leaderboard"), pod = $("podium"); if (!root) return;
+    if (!list || !list.length) { pod.innerHTML = ""; root.innerHTML = '<div class="empty">لا توجد إحصائيات بعد. العبوا أول جولة لتظهروا هنا.</div>'; return; }
+    var medals = ["🥇", "🥈", "🥉"];
+    pod.innerHTML = list.slice(0, 3).map(function (p, i) {
+      return '<div class="panel pod p' + (i + 1) + '"><div class="medal">' + medals[i] + '</div>' + avatar(p) + '<span class="name">' + safe(p.name) + '</span><div class="sub">⭐ ' + num(p.xp) + ' • 🏆 ' + num(p.wins) + '</div></div>';
+    }).join("");
+    root.innerHTML = list.map(function (p) {
+      return '<div class="playerrow"><span class="ranknum">' + (p.rank <= 3 ? medals[p.rank - 1] : num(p.rank)) + '</span><div class="playername">' + avatar(p) + '<div style="min-width:0"><div class="name">' + safe(p.name) + '</div><div class="sub">' + safe(p.level_name || "مبتدئ") + ' • ' + num(p.games) + ' جولة</div></div></div><span class="score">⭐ ' + num(p.xp) + '</span><span class="score">🏆 ' + num(p.wins) + '</span></div>';
+    }).join("");
+  }
+
+  function renderNews(list) {
+    var root = $("newsGrid"); if (!root) return;
+    if (!list || !list.length) { root.innerHTML = '<div class="panel empty" style="grid-column:1/-1">لا أخبار حاليًا. استخدم <bdi>/announce</bdi> في ديسكورد لنشر أول إعلان.</div>'; return; }
+    root.innerHTML = list.slice(0, 6).map(function (n) {
+      return '<article class="panel news"><h3>' + safe(n.title) + (n.pinned ? '<span class="pin">📌 مثبّت</span>' : "") + '</h3><p>' + safe(n.body) + '</p><div class="meta">' + safe(n.author || "الإدارة") + " • " + safe(ago(n.created_at)) + "</div></article>";
+    }).join("");
+  }
+
+  function renderHistory(list) {
+    var root = $("historyGrid"); if (!root) return;
+    if (!list || !list.length) { root.innerHTML = '<div class="panel empty" style="grid-column:1/-1">لم تُسجَّل جولات بعد.</div>'; return; }
+    root.innerHTML = list.map(function (g) {
+      var ico = g.winner === "wolves" ? "🐺" : g.winner === "white_wolf" ? "🤍" : "🏡";
+      var names = (g.winners || []).slice(0, 5).map(safe).join("، ") + ((g.winners || []).length > 5 ? "…" : "");
+      return '<div class="panel game ' + safe(g.winner) + '"><span class="ico">' + ico + '</span><div><b>فاز ' + safe(g.winner_label) + "</b><span class=\"sub\">" + num(g.players) + " لاعبين • " + num(g.nights) + " ليالٍ • " + safe(ago(g.ended_at)) + '</span><div class="sub">' + names + "</div></div></div>";
+    }).join("");
+  }
+
+  function renderRoles() {
+    var root = $("rolesGrid"); if (!root) return;
+    var list = state.roles.filter(function (r) { return state.filter === "all" || r.team === state.filter; });
+    root.innerHTML = list.map(function (r) {
+      var img = DEMO ? "" : '<img src="' + safe(API + r.image_url) + '" alt="بطاقة ' + safe(r.name_ar) + '" loading="lazy"/>';
+      return '<button type="button" class="panel rolecard" data-key="' + safe(r.key) + '"><div class="roleimage">' + (img || safe(r.emoji)) + '</div><div class="rolebody"><span class="pill' + (r.team === "الذئاب" ? " wolf" : "") + '">' + safe(r.team) + "</span><h3>" + safe(r.emoji) + " " + safe(r.name_ar) + "</h3></div></button>";
+    }).join("");
+    Array.prototype.forEach.call(root.querySelectorAll("img"), function (im) { im.addEventListener("error", function () { var box = im.parentNode, k = im.closest("[data-key]").getAttribute("data-key"); var r = state.roles.filter(function (x) { return x.key === k; })[0]; box.textContent = r ? r.emoji : "🐺"; }); });
+  }
+
+  function openRole(key) {
+    var r = state.roles.filter(function (x) { return x.key === key; })[0]; if (!r) return;
+    $("rmImg").innerHTML = DEMO ? safe(r.emoji) : '<img src="' + safe(API + r.image_url) + '" alt=""/>';
+    $("rmTeam").textContent = r.team; $("rmTeam").className = "pill" + (r.team === "الذئاب" ? " wolf" : "");
+    $("rmTitle").textContent = r.emoji + " " + r.name_ar + " / " + r.name_en; $("rmDesc").textContent = r.description;
+    $("roleModal").hidden = false; $("rmClose").focus();
+  }
+  function closeRole() { $("roleModal").hidden = true; }
+
+  function applySite(site) {
+    var invite = (site && site.invite_url) || C.DISCORD_INVITE || "";
+    var ok = /^https:\/\/(discord\.gg|discord\.com\/invite)\//.test(invite);
+    Array.prototype.forEach.call(document.querySelectorAll("[data-invite]"), function (a) { a.href = ok ? invite : "#"; });
+    var b = $("banner"); if (b) { var t = site && site.banner; b.hidden = !t; b.textContent = t ? "📣 " + t : ""; }
+  }
+
+  function renderAll(d) {
+    state.data = d; renderStatus(d.status, d.totals); renderBoard(d.leaderboard); renderNews(d.news); renderHistory(d.history); applySite(d.site);
+  }
+
+  /* ───── التحميل ───── */
+  var inflight = false;
+  function load(first) {
+    if (inflight) return; inflight = true;
+    var wake = first ? setTimeout(function () { setLive(null, "البوت يستيقظ… قد يستغرق حتى دقيقة (استضافة مجانية)"); if ($("lastUpdate")) $("lastUpdate").textContent = "⏳ الاستضافة المجانية تنام عند الخمول؛ انتظر قليلًا."; }, 5000) : 0;
+    getJSON("/api/public/summary?limit=10").then(function (d) { clearTimeout(wake); renderAll(d); }).catch(function (e) {
+      clearTimeout(wake);
+      setLive(false, "تعذّر الاتصال بالبوت");
+      if ($("lastUpdate")) $("lastUpdate").innerHTML = '<span class="error">' + safe(e.name === "AbortError" ? "انتهت مهلة الاتصال" : e.message) + "</span> — تحقق من API_BASE ومن أن الخدمة تعمل.";
+      if (first) { renderBoard(null); renderNews(null); renderHistory(null); applySite({}); }
+    }).then(function () { inflight = false; });
+  }
+
+  function reveal() {
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }); }, { threshold: .08 });
+    Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+  }
+
+  function init() {
+    if ($("year")) $("year").textContent = new Date().getFullYear();
+    applySite({});
+    if (!$("status")) return;                                  /* صفحات المدونة: لا توجد لوحة */
+    reveal();
+    var demo = $("demo"); if (demo && DEMO) demo.hidden = false;
+    Array.prototype.forEach.call(document.querySelectorAll(".chip"), function (c) { c.addEventListener("click", function () { state.filter = c.getAttribute("data-f"); Array.prototype.forEach.call(document.querySelectorAll(".chip"), function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); }); renderRoles(); }); });
+    $("rolesGrid").addEventListener("click", function (e) { var b = e.target.closest("[data-key]"); if (b) openRole(b.getAttribute("data-key")); });
+    $("rmClose").addEventListener("click", closeRole);
+    $("roleModal").addEventListener("click", function (e) { if (e.target === this) closeRole(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeRole(); });
+    $("refreshBtn").addEventListener("click", function () { if (DEMO) { renderAll(DEMO_DATA); toast("هذه بيانات تجريبية — اربط البوت لعرض بياناتك."); } else { load(false); toast("جارٍ التحديث…"); } });
+    renderRoles();
+    if (DEMO) { renderAll(DEMO_DATA); return; }
+    getJSON("/api/public/roles", 20000).then(function (d) { if (d.roles && d.roles.length) { state.roles = d.roles; renderRoles(); } }).catch(function () {});
+    load(true);
+    setInterval(function () { if (!document.hidden) load(false); }, 30000);
+    document.addEventListener("visibilitychange", function () { if (!document.hidden) load(false); });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+  /* نسخ رابط المنشور */
+  document.addEventListener("click", function (e) { var inv = e.target.closest && e.target.closest("a[data-invite]"); if (inv && inv.getAttribute("href") === "#") { e.preventDefault(); toast("لم يُضبط رابط الدعوة بعد (DISCORD_INVITE)."); return; } var b = e.target.closest && e.target.closest("[data-copy]"); if (b && navigator.clipboard) { navigator.clipboard.writeText(b.getAttribute("data-copy")).then(function () { toast("تم نسخ الرابط ✓"); }); } });
+})();
+
+//]]>
+</script>
+</body>
+</html>
