@@ -1,0 +1,83 @@
+<div class="wrap" id="home">
+<section class="hero">
+  <div>
+    <span class="eyebrow">✦ تجربة اجتماعية • غموض • استراتيجية</span>
+    <h1>من تثق به عندما<br/><span>يطلع القمر؟</span></h1>
+    <p class="lead">مرحبًا بك في <b>Merou Last</b> — لعبة الذئاب والقرويين على ديسكورد. تابع الجولة مباشرة، تصدّر القائمة، واكتشف أدوارًا لكل واحد منها سرّه.</p>
+    <div class="actions">
+      <a class="btn" data-invite="1" href="#" rel="noopener" target="_blank">🎮 انضم إلى السيرفر</a>
+      <a class="btn secondary" href="#ranking">🏆 المتصدرون</a>
+      <a class="btn secondary" href="#roles">🎭 الأدوار</a>
+    </div>
+    <div class="livepill" aria-live="polite"><span class="dot wait" id="heroDot"></span><span id="heroLive">جارٍ الاتصال بالبوت…</span></div>
+  </div>
+  <div class="heroart" aria-hidden="true"><div class="orbit"></div><div class="orbit two"></div><div class="moon"></div></div>
+</section>
+
+<div class="stats">
+  <div class="panel stat"><b id="statMembers">—</b><span>عضو في السيرفر</span></div>
+  <div class="panel stat"><b id="statGames">—</b><span>جولة منتهية</span></div>
+  <div class="panel stat"><b id="statPlayers">—</b><span>لاعب مسجّل</span></div>
+</div>
+
+<section class="section reveal" id="status">
+  <div class="sectionhead"><div><h2>📡 مركز حالة اللعبة</h2><p>بيانات حيّة من البوت تتجدد تلقائيًا.</p></div><button class="refresh" id="refreshBtn" type="button">↻ تحديث</button></div>
+  <div class="livegrid">
+    <div class="panel"><div class="statusrow"><span class="dot wait" id="botDot"></span><span id="botStatus">جارٍ الاتصال بالبوت…</span></div><div class="statvalue" id="phaseValue">—</div><div class="statlabel">مرحلة اللعبة <span id="nightNo"></span></div></div>
+    <div class="panel"><div class="statlabel">👥 في قائمة الانتظار</div><div class="statvalue" id="waitingValue">—</div><div class="statlabel">الحد الأدنى <span id="minPlayers">—</span></div></div>
+    <div class="panel"><div class="statlabel">🟢 الأحياء</div><div class="statvalue" id="aliveValue">—</div><div class="statlabel">داخل الجولة الحالية</div></div>
+    <div class="panel"><div class="statlabel">💀 الموتى</div><div class="statvalue" id="deadValue">—</div><div class="statlabel" id="guildName">Loup-Garou</div></div>
+  </div>
+  <div class="phases" id="phases">
+    <div class="phase" data-p="night">🌙 الليل</div><div class="phase" data-p="dawn">🌅 الفجر</div><div class="phase" data-p="day">☀️ النقاش</div><div class="phase" data-p="vote">🗳️ التصويت</div>
+  </div>
+  <p class="smallnote" id="lastUpdate" style="margin-top:10px">—</p>
+</section>
+
+<section class="section reveal" id="news">
+  <div class="sectionhead"><div><h2>📢 آخر الأخبار</h2><p>تُنشر من داخل ديسكورد بأمر <bdi>/announce</bdi>.</p></div></div>
+  <div class="newsgrid" id="newsGrid"><div class="panel loading">جارٍ تحميل الأخبار…</div></div>
+</section>
+
+<section class="section reveal" id="ranking">
+  <div class="sectionhead"><div><h2>🏆 قاعة الأساطير</h2><p>الترتيب حسب الخبرة ثم الانتصارات.</p></div><span class="pill">TOP 10</span></div>
+  <div class="podium" id="podium"></div>
+  <div class="panel leaderboard"><div class="tablehead"><span>#</span><span>اللاعب</span><span>الخبرة</span><span>الفوز</span></div><div id="leaderboard"><div class="loading">جارٍ تحميل الترتيب…</div></div></div>
+</section>
+
+<section class="section reveal" id="history">
+  <div class="sectionhead"><div><h2>📜 آخر الجولات</h2><p>نتائج الجولات المنتهية في السيرفر.</p></div></div>
+  <div class="history" id="historyGrid"><div class="panel loading">جارٍ تحميل السجل…</div></div>
+</section>
+
+<section class="section reveal" id="roles">
+  <div class="sectionhead"><div><h2>🎭 موسوعة الأدوار</h2><p>اضغط على أي بطاقة لقراءة قدرتها كاملة.</p></div>
+    <div class="chips" role="group" aria-label="تصفية الأدوار"><button class="chip" type="button" data-f="all" aria-pressed="true">الكل</button><button class="chip" type="button" data-f="القرية" aria-pressed="false">🏡 القرية</button><button class="chip" type="button" data-f="الذئاب" aria-pressed="false">🐺 الذئاب</button></div></div>
+  <div class="rolesgrid" id="rolesGrid"><div class="panel loading">جارٍ تحميل البطاقات…</div></div>
+</section>
+
+<section class="section reveal" id="rules">
+  <div class="sectionhead"><div><h2>📜 كيف تلعب؟</h2><p>دليل سريع للاعب الجديد.</p></div></div>
+  <div class="grid">
+    <article class="panel"><h3>🌑 الليل</h3><p class="statlabel">تنفّذ الأدوار الليلية قدراتها بسرية من أزرار البوت. لا تكشف معلوماتك في القنوات العامة.</p></article>
+    <article class="panel"><h3>🌕 النهار</h3><p class="statlabel">نقاش بالدور: يتكلم لاعب واحد كل مرة، ويمكنك طلب دور إضافي بموافقة العمدة.</p></article>
+    <article class="panel"><h3>🗳️ التصويت</h3><p class="statlabel">تصويت سري بالأزرار؛ العمدة بصوتين، والتعادل يعني لا إقصاء. تنتهي الجولة عند فوز أحد الفريقين.</p></article>
+  </div>
+  <div class="steps">
+    <div class="panel step"><h3>ادخل السيرفر</h3><p>من زر «انضم إلى السيرفر» أعلاه.</p></div>
+    <div class="panel step"><h3>سجّل في اللوبي</h3><p>اضغط «انضمام» في قناة غرفة-اللعبة (5 لاعبين على الأقل).</p></div>
+    <div class="panel step"><h3>استلم دورك سرًا</h3><p>تصلك البطاقة في الخاص أو من زر «اعرض دوري».</p></div>
+    <div class="panel step"><h3>العب واكسب خبرة</h3><p>كل جولة تمنحك نقاطًا ترفعك في الترتيب.</p></div>
+  </div>
+</section>
+
+<section class="section reveal" id="faq">
+  <div class="sectionhead"><div><h2>❓ أسئلة شائعة</h2></div></div>
+  <details class="faq"><summary>كم لاعبًا أحتاج لبدء جولة؟</summary><p>من 5 إلى 25 لاعبًا. تتغير الأدوار المفعّلة حسب العدد.</p></details>
+  <details class="faq"><summary>هل أحتاج الميكروفون؟</summary><p>الأفضل ذلك، فالنقاش صوتي بالدور، لكن البوت يدير الكتم تلقائيًا ويمكنك المشاركة بالكتابة أيضًا.</p></details>
+  <details class="faq"><summary>لماذا تظهر «البوت يستيقظ»؟</summary><p>الاستضافة المجانية تنام عند الخمول. انتظر دقيقة وستظهر البيانات.</p></details>
+  <details class="faq"><summary>كيف تُحفظ نقاطي؟</summary><p>تُحفظ في قاعدة بيانات دائمة وتتحدث بعد كل جولة، وتُمنح لك رتب تلقائية في ديسكورد.</p></details>
+</section>
+</div>
+
+<div class="modal" hidden="hidden" id="roleModal" role="dialog" aria-modal="true" aria-labelledby="rmTitle"><div class="panel modalbox"><div class="roleimage" id="rmImg"></div><div class="txt"><button class="close" id="rmClose" type="button">✕ إغلاق</button><span class="pill" id="rmTeam"></span><h3 id="rmTitle"></h3><p id="rmDesc"></p></div></div></div>
